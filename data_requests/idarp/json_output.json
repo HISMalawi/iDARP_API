@@ -1,0 +1,128 @@
+{
+    "stage_id": 1,
+    "stage_order": 1,
+    "stage_activity": "Pending submission",
+    "branch_level": 0,
+    "stage_type": "Initial",
+    "role": "Data Requester",
+    "pos_x": 0.5,
+    "pos_y": 0.9,
+    "icon": "fa-solid fa-person",
+    "next": [
+      {
+        "stage_id": 2,
+        "stage_order": 2,
+        "stage_activity": "Submitted",
+        "branch_level": 0,
+        "stage_type": "Junction",
+        "role": "Data Requester",
+        "pos_x": 0.5,
+        "pos_y": 0.8,
+        "icon": "fa-solid fa-circle-check",
+        "next": [
+          {
+            "stage_id": 3,
+            "stage_order": 3,
+            "stage_activity": "Access review",
+            "branch_level": 1,
+            "stage_type": "Intermediate",
+            "role": "Data Access Reviewer",
+            "pos_x": 0.3,
+            "pos_y": 0.7,
+            "icon": "fa-solid fa-building-user",
+            "next": [
+              {
+                "stage_id": 5,
+                "stage_order": 4,
+                "stage_activity": "Access approval",
+                "branch_level": 1,
+                "stage_type": "Intermediate",
+                "role": "Data Access Approver",
+                "pos_x": 0.3,
+                "pos_y": 0.6,
+                "icon": "fa-solid fa-building-user",
+                "next": [
+                  {
+                    "stage_id": 7,
+                    "stage_order": 5,
+                    "stage_activity": "Endorsement",
+                    "branch_level": 0,
+                    "stage_type": "Merge",
+                    "role": "Data Custodian",
+                    "pos_x": 0.5,
+                    "pos_y": 0.5,
+                    "icon": "fa-solid fa-user-lock",
+                    "next": [
+                      {
+                        "stage_id": 8,
+                        "stage_order": 6,
+                        "stage_activity": "Extraction",
+                        "branch_level": 0,
+                        "stage_type": "Intermediate",
+                        "role": "Data Officer",
+                        "pos_x": 0.5,
+                        "pos_y": 0.4,
+                        "icon": "fa-solid fa-person-chalkboard",
+                        "next": [
+                          {
+                            "stage_id": 9,
+                            "stage_order": 7,
+                            "stage_activity": "Collection",
+                            "branch_level": 0,
+                            "stage_type": "Terminal",
+                            "role": "Data Requester",
+                            "pos_x": 0.5,
+                            "pos_y": 0.3,
+                            "icon": "fa-solid fa-person",
+                            "next": []
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "stage_id": 4,
+            "stage_order": 3,
+            "stage_activity": "Security review",
+            "branch_level": 1,
+            "stage_type": "Intermediate",
+            "role": "Data Security Reviewer",
+            "pos_x": 0.7,
+            "pos_y": 0.7,
+            "icon": "fa-solid fa-building-user",
+            "next": [
+              {
+                "stage_id": 6,
+                "stage_order": 4,
+                "stage_activity": "Security approval",
+                "branch_level": 1,
+                "stage_type": "Intermediate",
+                "role": "Data Security Approver",
+                "pos_x": 0.7,
+                "pos_y": 0.6,
+                "icon": "fa-solid fa-building-user",
+                "next": [
+                  {
+                    "stage_id": 7,
+                    "stage_order": 5,
+                    "stage_activity": "Endorsement",
+                    "branch_level": 0,
+                    "stage_type": "Merge",
+                    "role": "Data Custodian",
+                    "pos_x": 0.5,
+                    "pos_y": 0.5,
+                    "icon": "fa-solid fa-user-lock",
+                    "next": []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }

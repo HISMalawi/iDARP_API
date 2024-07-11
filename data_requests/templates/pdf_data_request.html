@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Request Approval Details</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .section {
+            margin-bottom: 20px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #28c69f;
+            color: #fff;
+        }
+
+        .logo {
+            width: 100px;
+            height: auto;
+            margin-bottom: 10px;
+            margin-top: 20px;
+        }
+
+        .centre {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .variable-row {
+            background-color: #f9f9f9;
+        }
+
+        .variable-header {
+            background-color: rgba(40, 198, 159, 0.4);
+        }
+
+        .dataset-row {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="centre">
+        <img class="logo" src="data:image/png;base64,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" alt="Malawi Court of Arms">
+        <h1>Request Approval Details</h1>
+    </div>
+
+    {#  Request Information  #}
+    <div class="section">
+        <h2>Request Information</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Tracking ID</td>
+                <td>{{ request.tracking_id }}</td>
+            </tr>
+            <tr>
+                <td>Title</td>
+                <td>{{ request.title }}</td>
+            </tr>
+            <tr>
+                <td>Date Submitted</td>
+                <td>{{ request.submitted_on }}</td>
+            </tr>
+            <tr>
+                <td>Data Needed On</td>
+                <td>{{ request.needed_on }}</td>
+            </tr>
+            <tr>
+                <td>Protocol Ref Number</td>
+                <td>{{ request.protocol_ref_num }}</td>
+            </tr>
+            <tr>
+                <td>Ethics Committee name</td>
+                <td>{{ request.irb_name }}</td>
+            </tr>
+            <tr>
+                <td>Data Format</td>
+                <td>{{ request.data_format }}</td>
+            </tr>
+            <tr>
+                <td>Principal Name</td>
+                <td>{{ request.principal_fname }} {{ request.principal_sname }}</td>
+            </tr>
+            <tr>
+                <td>Principal phone</td>
+                <td>{{ request.principal_phone }}</td>
+            </tr>
+            <tr>
+                <td>Principal Email</td>
+                <td>
+                    {% if request.principal_email and request.principal_email != 'None' %}
+                        {{ request.principal_email }}
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Principal Occupation</td>
+                <td>{{ request.principal_occupation }}</td>
+            </tr>
+            <tr>
+                <td>Principal institution</td>
+                <td>{{ request.principal_institution }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {#  Data Filters  #}
+    <div class="section">
+        <h2>Data Filters</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>From</td>
+                <td>{{ request.filters.date_range_filter.start_value }}</td>
+            </tr>
+            <tr>
+                <td>To</td>
+                <td>{{ request.filters.date_range_filter.end_value }}</td>
+            </tr>
+            {% for filter in request.filters.facility_filter %}
+            <tr>
+                <td>Facility Filter</td>
+                <td>{{ filter }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {#  Dataset Information  #}
+    <div class="section">
+        <h2>Dataset Information</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Data Source</td>
+                <td>{{ request.data_source }}</td>
+            </tr>
+            <tr>
+                <td>Dataset Description</td>
+                <td>{{ request.dataset_description }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {#  Purposes  #}
+    <div class="section">
+        <h2>Purposes</h2>
+        <table>
+            <tr>
+                <th>Purpose</th>
+                <th>Purpose Description</th>
+            </tr>
+            {% for purpose in request.purposes %}
+                <tr>
+                    <td>{{ purpose.purpose }}</td>
+                    <td>
+                        {% if purpose.purpose_description and purpose.purpose_description != 'None' %}
+                            {{ purpose.purpose_description }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {#  Requester Information  #}
+    <div class="section">
+        <h2>Requester Information</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ request.requester.fname }} {{ request.requester.sname }}</td>
+            </tr>
+            <tr>
+                <td>Organization</td>
+                <td>{{ request.organization.name }}</td> <!--Todo: Get the organization or the tentative one -->
+            </tr>
+            <tr>
+                <td>Department</td>
+                <td>{{ request.requester.department }}</td>
+            </tr>
+            <tr>
+                <td>Designation</td>
+                <td>{{ request.requester.designation }}</td>
+            </tr>
+            <tr>
+                <td>Phone</td>
+                <td>{{ request.requester.phone }}</td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td>{{ request.requester.org_email }}</td>
+            </tr>
+        </table>
+    </div>
+
+    {#  Data handling Devices  #}
+    <div class="section">
+        <h2>List of Devices</h2>
+        <table>
+            <tr>
+                <th>Device Type</th>
+                <th>Serial Number</th>
+                <th>Name of Organization</th>
+                <th>Used By</th>
+                <th>From</th>
+                <th>To</th>
+            </tr>
+            {% for device in request.devices %}
+            	<tr>
+                    <td>{{ device.equipment_type.equipment_type }}</td>
+                    <td>{{ device.serial_number }}</td>
+                    <td>{{ device.organisation }}</td>
+                    <td>{{ device.used_by }}</td>
+                    <td>{{ device.usage_from }}</td>
+                    <td>{{ device.usage_to }}</td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+
+    {#  List of Staff  #}
+    <div class="section">
+        <h2>List of Staff</h2>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>ID Type</th>
+                <th>ID Number</th>
+                <th>Position</th>
+            </tr>
+
+            {% for staff in request.staff_shared %}
+            	<tr>
+                    <td>{{ staff.first_name }} {{ staff.surname }}</td>
+                    <td>{{ staff.phone }}</td>
+                    <td>{{ staff.email }}</td>
+                    <td>{{ staff.identification_type }}</td>
+                    <td>{{ staff.identification_number }}</td>
+                    <td>{{ staff.position_in_organisation }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+
+    {#  Organization Information  #}
+    <div class="section">
+        <h2>Organization Information</h2>
+        <table>
+            <tr>
+                <th>Field</th>
+                <th>Value</th>
+            </tr>
+            <tr>
+                <td>Name</td>
+                <td>{{ request.organization.name }}</td>
+            </tr>
+            <tr>
+                <td>Domain</td>
+                <td><a href="https://{{ request.organization.domain }}">{{ request.organization.domain }}</a></td>
+            </tr>
+        </table>
+    </div>
+
+    {#  Requested Datasets  #}
+    <div class="section">
+        <h2>Requested Datasets</h2>
+        <table>
+            <tr>
+                <th>Data Source</th>
+                <th colspan="2">Description</th>
+            </tr>
+            {% for dataset in request.requested_datasets %}
+                <tr class="dataset-row">
+                    <td>{{ dataset.data_source.description }}</td>
+                    <td colspan="2">{{ dataset.dataset_description }}</td>
+                </tr>
+                <tr class="variable-header">
+                    <td>Variable name</td>
+                    <td>Data type</td>
+                    <td>Meaning</td>
+                </tr>
+                <!-- Loop through each variable in the dataset -->
+                {% for variable in dataset.dataset_variables %}
+                    <tr class="variable-row">
+                        <td>{{ variable.var.var_name }}</td>
+                        <td>{{ variable.var.data_type }}</td>
+                        <td>{{ variable.var.meaning }}</td>
+                    </tr>
+                {% endfor %}
+            {% endfor %}
+        </table>
+    </div>
+
+</body>
+</html>

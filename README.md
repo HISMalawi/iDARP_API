@@ -1,4 +1,4 @@
-# IDARP_API
+# MEDU_CDR_IDS_Data_Dictionary_API
 
 This repository contains a Python Django API project. 
 This guide will walk you through the steps to set up the Django environment required to run the API locally.
